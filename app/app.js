@@ -54,34 +54,6 @@ function getUiConfig() {
 // Initialize the FirebaseUI Widget using Firebase.
 var ui = new firebaseui.auth.AuthUI(firebase.auth());
 
-
-/**
- * @return {string} The URL of the FirebaseUI standalone widget.
- */
-  /////////////////////////////
-function getWidgetUrl() {
-  return '/widget#recaptcha=' + getRecaptchaMode();
-}
-
-
-/**
- * Redirects to the FirebaseUI widget.
- */
-  /////////////////////////////
-var signInWithRedirect = function() {
-  window.location.assign(getWidgetUrl());
-};
-
-
-/**
- * Open a popup with the FirebaseUI widget.
- */
- /////////////////////////////
-var signInWithPopup = function() {
-  window.open(getWidgetUrl(), 'Sign In', 'width=985,height=735');
-};
-
-
 /**
  * Displays the UI for a signed in user.
  * @param {!firebase.User} user
@@ -138,32 +110,10 @@ var deleteAccount = function() {
   });
 };
 
-
-/**
- * Handles when the user changes the reCAPTCHA config.
- */
-  /////////////////////////////
-function handleRecaptchaConfigChange() {
-  var newRecaptchaValue = document.querySelector(
-      'input[name="recaptcha"]:checked').value;
-  location.replace(location.pathname + '#recaptcha=' + newRecaptchaValue);
-
-  // Reset the inline widget so the config changes are reflected.
-  ui.reset();
-  ui.start('#firebaseui-container', getUiConfig());
-}
-
-
 /**
  * Initializes the app.
  */
 var initApp = function() {
- /*/////////////////////////////
-  document.getElementById('sign-in-with-redirect').addEventListener(
-      'click', signInWithRedirect);
-/////////////////////////////
-  document.getElementById('sign-in-with-popup').addEventListener(
-      'click', signInWithPopup);*/
   document.getElementById('sign-out').addEventListener('click', function() {
     firebase.auth().signOut();
   });
@@ -171,17 +121,6 @@ var initApp = function() {
       'click', function() {
         deleteAccount();
       });
- /*////////////////////////////
-  document.getElementById('recaptcha-normal').addEventListener(
-      'change', handleRecaptchaConfigChange);
- /////////////////////////////
-  document.getElementById('recaptcha-invisible').addEventListener(
-      'change', handleRecaptchaConfigChange);
-  // Check the selected reCAPTCHA mode.
-   /////////////////////////////
-  document.querySelector(
-      'input[name="recaptcha"][value="' + getRecaptchaMode() + '"]')
-      .checked = true;*/
 };
 
 window.addEventListener('load', initApp);
