@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <title>Login - Paradox</title>
+
+        <script src="https://www.gstatic.com/firebasejs/live/4.1/firebase.js"></script>
+        <script src="app/config.js"></script>
+        <script src="app/common.js"></script>
+        <link href="css/style.css" rel="stylesheet" type="text/css" media="screen" />
+        <script src="app/firebase/firebaseui-2.3.0.js"></script>
+        <link type="text/css" rel="stylesheet" href="app/firebase/firebaseui-2.3.0.css" />
+
+        <link rel="stylesheet" href="css/bootstrap-4.0.0-beta.min.css">
+    </head>
+    <body>
+        <div class="container">
+            <h3>FirebaseUI Demo</h3>
+            <div id="loading">Loading...</div>
+            <div id="loaded" class="hidden">
+              <div id="main">
+                <div id="user-signed-in" class="hidden">
+                  <div id="user-info">
+                    <div id="photo-container">
+                      <img id="photo">
+                    </div>
+                    <div id="name"></div>
+                    <div id="email"></div>
+                    <div id="phone"></div>
+                    <div class="clearfix"></div>
+                  </div>
+                  <p>
+                    <button id="sign-out">Sign Out</button>
+                    <button id="delete-account">Delete account</button>
+                  </p>
+                </div>
+                <div id="user-signed-out" class="hidden">
+                  <h4>You are signed out.</h4>
+                  <fieldset>
+                    <legend>Configuration</legend>
+                    reCAPTCHA mode for Phone Auth:
+                    <label for="recaptcha-normal">
+                      <input type="radio" id="recaptcha-normal" name="recaptcha" value="normal">
+                      Normal
+                    </label>
+                    <label for="recaptcha-invisible">
+                      <input type="radio" id="recaptcha-invisible" name="recaptcha" value="invisible">
+                      Invisible
+                    </label>
+                  </fieldset>
+                  <p>
+                    <button id="sign-in-with-redirect">Sign In with Redirect</button>
+                    <button id="sign-in-with-popup">Sign In with Popup</button>
+                  </p>
+                  <div id="firebaseui-spa">
+                    <h5>Single Page Application mode:</h5>
+                    <div id="firebaseui-container"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+
+        <script src="app/app.js"></script>
+
+        <script src="js/jquery-3.2.1.slim.min.js"></script>
+        <script src="js/popper-1.11.0.min.js"></script>
+        <script src="js/bootstrap-4.0.0-beta.min.js"></script>
+        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+        <script src="js/ie10-viewport-bug-workaround.js"></script>
+    </body>
+</html>
