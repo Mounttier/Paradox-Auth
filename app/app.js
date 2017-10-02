@@ -88,6 +88,7 @@ var signInWithPopup = function() {
  */
 var handleSignedInUser = function(user) {
     console.log(user.email);
+    console.log(user);
   document.getElementById('user-signed-in').style.display = 'block';
   document.getElementById('user-signed-out').style.display = 'none';
   document.getElementById('name').textContent = user.displayName;
