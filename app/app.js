@@ -58,6 +58,7 @@ var ui = new firebaseui.auth.AuthUI(firebase.auth());
 /**
  * @return {string} The URL of the FirebaseUI standalone widget.
  */
+  /////////////////////////////
 function getWidgetUrl() {
   return '/widget#recaptcha=' + getRecaptchaMode();
 }
@@ -66,6 +67,7 @@ function getWidgetUrl() {
 /**
  * Redirects to the FirebaseUI widget.
  */
+  /////////////////////////////
 var signInWithRedirect = function() {
   window.location.assign(getWidgetUrl());
 };
@@ -74,6 +76,7 @@ var signInWithRedirect = function() {
 /**
  * Open a popup with the FirebaseUI widget.
  */
+ /////////////////////////////
 var signInWithPopup = function() {
   window.open(getWidgetUrl(), 'Sign In', 'width=985,height=735');
 };
@@ -137,6 +140,7 @@ var deleteAccount = function() {
 /**
  * Handles when the user changes the reCAPTCHA config.
  */
+  /////////////////////////////
 function handleRecaptchaConfigChange() {
   var newRecaptchaValue = document.querySelector(
       'input[name="recaptcha"]:checked').value;
@@ -152,10 +156,12 @@ function handleRecaptchaConfigChange() {
  * Initializes the app.
  */
 var initApp = function() {
+ /*/////////////////////////////
   document.getElementById('sign-in-with-redirect').addEventListener(
       'click', signInWithRedirect);
+/////////////////////////////
   document.getElementById('sign-in-with-popup').addEventListener(
-      'click', signInWithPopup);
+      'click', signInWithPopup);*/
   document.getElementById('sign-out').addEventListener('click', function() {
     firebase.auth().signOut();
   });
@@ -163,15 +169,17 @@ var initApp = function() {
       'click', function() {
         deleteAccount();
       });
-
+ /*////////////////////////////
   document.getElementById('recaptcha-normal').addEventListener(
       'change', handleRecaptchaConfigChange);
+ /////////////////////////////
   document.getElementById('recaptcha-invisible').addEventListener(
       'change', handleRecaptchaConfigChange);
   // Check the selected reCAPTCHA mode.
+   /////////////////////////////
   document.querySelector(
       'input[name="recaptcha"][value="' + getRecaptchaMode() + '"]')
-      .checked = true;
+      .checked = true;*/
 };
 
 window.addEventListener('load', initApp);
